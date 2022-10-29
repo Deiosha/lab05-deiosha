@@ -52,11 +52,16 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sumAndMultiply(a, b, c) { //eslint-disable-line
+    let firstSum = sum(a,b)[0];
+    let finalSum = sum(firstSum, c)[0];
+    let firstMultiply = multiply(a,b)[0];
+    let finalMultiply = multiply(firstMultiply, c)[0];
 
-}
+    return [finalSum, finalMultiply,`${a} and ${b} and ${c} sum to ${finalSum}. The product of ${a} and ${b} and ${c} is ${finalMultiply}.`];
+  }
 
 // Here is the test for sumAndMultiply(); uncomment it to run it
-// testSumAndMultiply(4,7,5);
+sumAndMultiply(4,7,5);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -71,15 +76,19 @@ IMPORTANT DETAIL: You may not use the arithmetic operator + in this function. To
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testSumArray() function and see if the test passes.*/
 
 // Write your code here
-let testArray = [2, 3, 4]; //eslint-disable-line
-
-function sumArray(sumArr) { //eslint-disable-line
-
+let testArray = [2,3,4]; //eslint-disable-line
+function sumArray(sumArr){ //eslint-disable-line
+  let finalSum = 0;
+  for (let i = 0; sumArr.length > i; 1++) {
+    finalSum = sum(sumArr[i], finalSum)[0];
+  }
+  return [finalSum, `${sumArr} was passed in as an array of numbers, and ${finalSum} is their sum.`];
 }
+
 
 // Here is the test for sumArray(); uncomment it to run it
 
-// testSumArray(testArray);
+testSumArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -95,7 +104,12 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiplyArray(multArr) { //eslint-disable-line
-
+for (let i = 0; i < multArr.length; i++){
+let firstProduct = multiply(multArr[0], multArr[1])[0];
+let finalProduct = multiply (firstProduct, multArr [2])[0];
+let finalAnswer = [finalProduct, `The numbers ${multArr[0]}, ${multArr[1]}, ${multArr[2]} have a product of ${finalProduct}.`];
+return finalAnswer;
+}
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
